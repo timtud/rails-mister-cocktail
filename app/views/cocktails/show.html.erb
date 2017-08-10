@@ -1,8 +1,9 @@
 <div class="container">
 <h1>  <%= @cocktail.name.capitalize %></h1>
 <%= simple_form_for [@cocktail, @dose] do |f| %>
+<%= f.error_notification %>
   <%=f.input :description  %>
-  <%=f.input :ingredient_id, collection: Ingredient.all  %>
+  <%=f.input :ingredient_id , collection: Ingredient.all  %>
   <%= f.submit "Add dose", class: 'btn btn-primary' %>
   <%= link_to 'Back', cocktails_path, class: 'btn btn-danger' %>
 <% end %>
@@ -12,6 +13,7 @@
     <li class="list-group-item">
       <h4 class="list-group-item-heading"><%= ingredient.name %></h4>
       <p class="list-group-item-text"><%= dose.description %></p>
+      <%= link_to "Delete", cocktail_dose_path( @cocktail, dose), class: 'btn-medium btn-danger ' , method: :delete, data: { confirm: 'Are you certain you want to delete this?' }  %>
     </li>
     <% end %>
 </div>
