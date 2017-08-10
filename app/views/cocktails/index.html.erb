@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Cocktails <%= link_to "+" , new_cocktail_path%>  </h1>
+
+  <div class="list-group">
+  <% @cocktails.each do |cocktail| %>
+
+    <%= link_to cocktail_path(cocktail), class: 'list-group-item' do %>
+      <h4 class="list-group-item-heading"><%= cocktail.name.capitalize%></h4>
+    <% end %>
+<% end %>
+</div>
+</div>
