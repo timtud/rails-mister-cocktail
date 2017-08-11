@@ -1,6 +1,14 @@
+<div class="container">
 <%= simple_form_for @cocktail do |f| %>
   <%=f.input :name  %>
-  <%= f.input :photo, as: :attachinary %>
+
+  <label class="btn btn-success">
+     Add a file!
+    <span style="display:none;">
+       <%= f.input :photo, as: :attachinary %>
+    </span>
+  </label>
   <%= f.submit "Create cocktail", class: 'btn btn-primary'  %>
   <%= link_to 'Back', cocktails_path, class: 'btn btn-danger' %>
 <% end %>
+</div>
