@@ -1,3 +1,59 @@
 // Place all the styles related to the cocktails controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+h1 {
+  color: white
+}
+
+.card {
+  height: 175px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: black;
+  position: relative;
+  border-radius: 5px;
+  border: 5px solid white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  margin:  10px;
+}
+
+.card-category {
+  position: absolute;
+  bottom: 10px;
+  right:10px;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+.card-description {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+.card-description h2 {
+  font-size: 24px;
+}
+.card-description p {
+  font-size: 14px;
+  opacity: 0.7;
+  font-weight: lighter;
+}
+.card-link {
+text-decoration: none;
+color: white;
+}
+.card-link:hover {
+
+}
+.list-group {
+  color: black;
+}
+
+.del {
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+}
+.item {
+  margin: 10px;
+}

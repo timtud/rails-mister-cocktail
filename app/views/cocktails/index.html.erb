@@ -1,17 +1,21 @@
 <div class="container">
-<%= cl_image_tag("reymudq2r9z0o1muo3eu.jpg",
-      width: 400, height: 300, crop: :fill) %>
-  <h1>Cocktails <%= link_to "+" , new_cocktail_path%>  </h1>
 
-  <div class="list-group">
+  <h1>Cocktails <%= link_to "Create cocktail" , new_cocktail_path, class: 'btn btn-success'%>  </h1>
+<div class="row">
   <% @cocktails.each do |cocktail| %>
-
-    <%= link_to cocktail_path(cocktail), class: 'list-group-item' do %>
-      <h4 class="list-group-item-heading"><%= cocktail.name.capitalize%></h4>
-      <% if cocktail.photo? %>
-  <%= cl_image_tag cocktail.photo.path, class: "list-group-image", width: 200, height: 300, crop: :fill %>
-<% end %>
+    <%= link_to cocktail_path(cocktail), class: 'card-link'  do%>
+      <div class="col-xs-12 col-sm-4">
+        <% if cocktail.photo? %>
+          <div class="card"
+          style="background-image: url('<%= cl_image_path cocktail.photo.path, height: 300, width: 400, crop: :fill %>')">
+        <% else %>
+          <div class="card" style="background-color: #bbb">
+        <% end %>
+            <div class="card-category"><%= cocktail.name.capitalize%></div>
+            <div class="card-description"></div>
+        </div>
+      </div>
     <% end %>
-<% end %>
+  <% end %>
 </div>
 </div>
