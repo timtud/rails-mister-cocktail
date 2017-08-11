@@ -22,6 +22,16 @@ class CocktailsController < ApplicationController
     end
   end
 
+  def update
+    @cocktail = Cocktail.find(params[:id])
+    @cocktail.photo = cocktail_params[:photo]
+    if @cocktail.save
+      redirect_to cocktail_path(@cocktail)
+    else
+      render 'cocktail/show'
+    end
+  end
+
   private
 
   def cocktail_params

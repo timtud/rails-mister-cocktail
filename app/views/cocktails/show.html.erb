@@ -5,6 +5,18 @@
     <%= cl_image_tag @cocktail.photo.path, class: "img-thumbnail", width: 400, height: 600 %>
     <% end %>
 </div>
+<% unless @cocktail.photo? %>
+  <%= simple_form_for @cocktail do |f| %>
+    <label class="btn btn-success">
+       Upload photo!
+      <span style="display:none;">
+         <%= f.input :photo, as: :attachinary %>
+      </span>
+    </label>
+    <%= f.submit "Add photo", class: 'btn btn-primary'  %>
+  <% end %>
+<% end %>
+
 <div class="list-group">
   <% @cocktail.doses.each do |dose| %>
     <% ingredient = Ingredient.find(dose.ingredient_id) %>
