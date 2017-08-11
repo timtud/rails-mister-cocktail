@@ -4,4 +4,6 @@ Rails.application.routes.draw do
     resources :doses, only: [:create, :destroy]
   end
 
+  root to: "cocktails#index"
+mount Attachinary::Engine => "/attachinary"
 end

@@ -1,4 +1,6 @@
 <div class="container">
+<%= cl_image_tag("reymudq2r9z0o1muo3eu.jpg",
+      width: 400, height: 300, crop: :fill) %>
   <h1>Cocktails <%= link_to "+" , new_cocktail_path%>  </h1>
 
   <div class="list-group">
@@ -6,6 +8,9 @@
 
     <%= link_to cocktail_path(cocktail), class: 'list-group-item' do %>
       <h4 class="list-group-item-heading"><%= cocktail.name.capitalize%></h4>
+      <% if cocktail.photo? %>
+  <%= cl_image_tag cocktail.photo.path, class: "list-group-image", width: 200, height: 300, crop: :fill %>
+<% end %>
     <% end %>
 <% end %>
 </div>

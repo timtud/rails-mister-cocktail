@@ -1,12 +1,10 @@
 <div class="container">
-<h1>  <%= @cocktail.name.capitalize %></h1>
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-<%= f.error_notification %>
-  <%=f.input :description  %>
-  <%=f.input :ingredient_id , collection: Ingredient.all  %>
-  <%= f.submit "Add dose", class: 'btn btn-primary' %>
-  <%= link_to 'Back', cocktails_path, class: 'btn btn-danger' %>
-<% end %>
+
+  <h1>  <%= @cocktail.name.capitalize %></h1>
+    <% if @cocktail.photo? %>
+    <%= cl_image_tag @cocktail.photo.path, class: "img-thumbnail", width: 200, height: 300, crop: :fill %>
+    <% end %>
+
 <div class="list-group">
   <% @cocktail.doses.each do |dose| %>
     <% ingredient = Ingredient.find(dose.ingredient_id) %>
@@ -17,6 +15,14 @@
     </li>
     <% end %>
 </div>
+
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+<%= f.error_notification %>
+  <%=f.input :description  %>
+  <%=f.input :ingredient_id , collection: Ingredient.all  %>
+  <%= f.submit "Add dose", class: 'btn btn-primary' %>
+  <%= link_to 'Back', cocktails_path, class: 'btn btn-danger' %>
+<% end %>
 </div>
 
 
