@@ -1,6 +1,9 @@
 <div class="container">
-
-  <h1>Cocktails <%= link_to "Create cocktail" , new_cocktail_path, class: 'btn btn-success'%>  </h1>
+  <div style='display: inline;'>
+  <h1 >Cocktails </h1>
+  <%= link_to "Create cocktail" , new_cocktail_path, class: 'btn btn-success'%>
+   <%= link_to "Random cocktail" , cocktail_path(Cocktail.all.sample), class: 'btn btn-success'%>
+</div>
 <div class="row">
   <% @cocktails.each do |cocktail| %>
     <%= link_to cocktail_path(cocktail), class: 'card-link'  do%>
